@@ -29,8 +29,8 @@
 git switch main
 git pull
 
-# 2. 本日の日付のブランチを作成し、移動（例: 2025年11月19日の場合）
-git switch -c 2025-11-19
+# 2. 本日の日付のブランチを作成し、移動
+git switch -c $(date +%Y-%m-%d)
 ```
 
 ### 2. コミットとプッシュ
@@ -40,10 +40,10 @@ git switch -c 2025-11-19
 ```bash
 # 3. 変更をステージングし、コミット
 git add .
-git commit -m "feat: 2025-11-19 の TIL 記録を追加" 
+git commit -m "変更差分に関するコメント"
 
 # 4. リモートへプッシュ（-u は初回のみ）
-git push -u origin 2025-11-19
+git push -u origin $(date +%Y-%m-%d)
 ```
 
 ### 3. プルリクエスト (PR) の作成
@@ -58,6 +58,6 @@ GitHubウェブサイトで、プッシュしたブランチから `main` ブラ
 # mainブランチに戻る
 git switch main
 
-# マージ済みのブランチを削除
-git branch -d 2025-11-19
+# マージ済みのブランチを削除（例: 2025-11-19）
+git branch -d <ブランチ名>
 ```
