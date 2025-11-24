@@ -136,6 +136,18 @@ gh api repos/mrmrtmrn/my-blog/commits --jq '.[] | "\(.sha[0:7]) \(.commit.messag
 gh project item-list 9 --owner mrmrtmrn --format json --limit 100
 ```
 
+### Issue 作成ルール
+
+my-blog リポジトリに issue を作成する際は、必ず GitHub Project にも追加すること：
+
+```bash
+# issue 作成
+gh issue create --repo mrmrtmrn/my-blog --title "タイトル" --body "本文"
+
+# 作成した issue を Project に追加
+gh project item-add 9 --owner mrmrtmrn --url https://github.com/mrmrtmrn/my-blog/issues/番号
+```
+
 ## 著作権ガイドライン（Books/ 専用）
 
 Books/ ディレクトリで読書メモを作成する際は、著作権に配慮してください：
