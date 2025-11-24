@@ -18,13 +18,32 @@ GitHub API を使用して、my-blog リポジトリの main ブランチのコ�
 gh api repos/mrmrtmrn/my-blog/commits --jq '.[] | "\(.sha) \(.commit.message | split("\n")[0])"'
 ```
 
-## 3. 新しいコミットの有無を確認
+## 3. GitHub Project から issue 情報を取得
+
+GitHub Project（#9）から issue の状態を取得：
+
+```bash
+gh project item-list 9 --owner mrmrtmrn --format json --limit 100
+```
+
+### 記録済み Done issue の確認
+
+`MyApp/MyBlog/.done-issues.json` から記録済みの Done issue 番号を取得。
+
+### issue の分類
+
+- **In Progress**: 現在 `In Progress` 状態のissue → 全て表示
+- **Done（新規）**: `Done` 状態かつ `.done-issues.json` に未記録 → 新規完了として表示
+- **Done（記録済み）**: `.done-issues.json` に記録済み → スキップ
+
+## 4. 新しいコミット/issueの有無を確認
 
 - 前回のハッシュ以降に新しいコミットがあるか確認
-- **新しいコミットがない場合**：「MyBlog に新しい変更はありません。」と表示して終了
-- **新しいコミットがある場合**：次のステップへ進む
+- 新規の Done issue または In Progress の issue があるか確認
+- **どちらもない場合**：「MyBlog に新しい変更はありません。」と表示して終了
+- **いずれかがある場合**：次のステップへ進む
 
-## 4. TIL リポジトリのブランチ名から日付を取得
+## 5. TIL リポジトリのブランチ名から日付を取得
 
 ```bash
 git branch --show-current
@@ -32,41 +51,105 @@ git branch --show-current
 
 ブランチ名が `YYYY-MM-DD` 形式であることを確認。
 
-## 5. 進捗ファイルを生成
+## 6. 進捗ファイルを生成または更新
+
+### 6-A. 既存ファイルがない場合（新規作成）
 
 `MyApp/MyBlog/進捗テンプレート.md` をベースに、`MyApp/MyBlog/YYYY-MM-DD.md` を作成：
 
-### 自動入力する内容：
+#### 自動入力する内容：
 
 1. **タイトル**: `# YYYY-MM-DD MyBlog 進捗`
 2. **対象コミット範囲**: `前回のハッシュ（短縮形7文字）` → `最新のハッシュ（短縮形7文字）`
    - 初回の場合は `初回` → `最新のハッシュ`
-3. **今日やったこと**: 前回のハッシュ以降のコミットメッセージを箇条書きで列挙
+   - コミットがない場合は `変更なし`
+3. **概要**: コミットとissueの情報から今日やったことを1〜2文で要約
+   - 例：
+     - コミットのみ: 「Rails APIとReactフロントエンドの初期セットアップを実施」
+     - issueのみ: 「Docker設定理解、mainブランチ保護設定の2つのissueを完了」
+     - 両方: 「Post モデルの実装を行い、モデル作成のissueを完了」
+     - 変更なし: 「進捗なし」
+4. **今日やったこと（コミット）**: 前回のハッシュ以降のコミットメッセージを箇条書きで列挙
    - 例：
      ```
      - [abc1234] Initial commit
      - [def5678] Add Docker configuration
      ```
+5. **Issue 進捗**:
+   - **完了した issue**: 新規 Done の issue を箇条書き（リンク付き）
+     ```
+     - [#2 Dockerの設定理解](https://github.com/mrmrtmrn/my-blog/issues/2)
+     ```
+   - **進行中の issue**: In Progress の issue を箇条書き（リンク付き）
+     ```
+     - [#3 Railsで使っているgemの理解](https://github.com/mrmrtmrn/my-blog/issues/3)
+     ```
 
-### 手動で埋める内容（空欄のまま）：
+#### 手動で埋める内容（空欄のまま）：
 
-- 概要
 - 学んだこと・気づき
 - 次にやること
 - 参考リンク
 
-## 6. 結果を報告
+### 6-B. 既存ファイルがある場合（追記モード）
 
-作成したファイルのパスと、対象となったコミット数を報告：
+同じ日付の進捗ファイル `MyApp/MyBlog/YYYY-MM-DD.md` が既に存在する場合は、以下の部分のみ更新：
 
+1. **対象コミット範囲**: 最新のハッシュに更新
+2. **概要**: 既存の概要に追加情報をマージして再生成
+   - 既存の内容と新しいコミット/issueを含めた全体の概要に更新
+3. **今日やったこと（コミット）**: 新しいコミットを末尾に追記（重複は追加しない）
+4. **Issue 進捗**:
+   - **完了した issue**: 新規 Done を追記
+   - **進行中の issue**: 最新の In Progress リストに置き換え
+
+**保持する内容（上書きしない）:**
+- 学んだこと・気づき
+- 次にやること
+- 参考リンク
+
+## 7. 記録済み Done issue を更新
+
+新規 Done として記録した issue 番号を `MyApp/MyBlog/.done-issues.json` に追加：
+
+```json
+{
+  "description": "myblog-progress で記録済みの Done issue を管理するファイル",
+  "recorded_done_issues": [1, 2]
+}
+```
+
+## 8. 結果を報告
+
+作成/更新したファイルのパスと、対象となったコミット数・issue数を報告：
+
+### 新規作成の場合：
 ```
 ✅ 進捗ファイルを作成しました: MyApp/MyBlog/YYYY-MM-DD.md
 
-対象コミット: X 件
+【コミット】X 件
 - [abc1234] Initial commit
 - [def5678] Add Docker configuration
 
-「概要」「学んだこと・気づき」「次にやること」は手動で記入してください。
+【Issue】
+- 完了: Y 件
+- 進行中: Z 件
+
+「学んだこと・気づき」「次にやること」は手動で記入してください。
+```
+
+### 追記モードの場合：
+```
+✅ 進捗ファイルを更新しました: MyApp/MyBlog/YYYY-MM-DD.md
+
+【追加コミット】X 件
+- [ghi7890] 追加のコミット
+
+【Issue 更新】
+- 新規完了: Y 件
+- 進行中: Z 件
+
+手動入力部分は保持されています。
 ```
 
 ---
@@ -75,3 +158,5 @@ git branch --show-current
 - すべて日本語で記述
 - コミットハッシュは短縮形（7文字）を使用
 - ファイル名の日付はTILリポジトリのブランチ名に準拠
+- Done issue は `.done-issues.json` で重複を防ぐ
+- 毎回必ず GitHub API を実行して最新情報を取得すること（過去の取得結果を再利用しない）

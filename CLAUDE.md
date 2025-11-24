@@ -103,12 +103,23 @@ gh pr create --base main --head YYYY-MM-DD --title "feat: YYYY-MM-DD の TIL 記
 
 MyBlog の進捗を記録する際は、以下のルールに従ってください：
 
+### コミット追跡
+
 1. **対象**: my-blog リポジトリ（https://github.com/mrmrtmrn/my-blog）の **main ブランチの変更のみ** を記録
 2. **追跡方法**: コミットハッシュで「どこまで記録したか」を管理
    - 各進捗ファイルに `対象コミット範囲: 前回のハッシュ → 最新のハッシュ` を記載
 3. **記録範囲**: 前回の進捗ファイルの最新ハッシュ以降〜現在の最新コミットまで
 4. **ファイル名**: TILリポジトリのブランチ名（日付）を使用
    - 例: ブランチが `2025-11-23` なら `MyApp/MyBlog/2025-11-23.md`
+
+### Issue 追跡
+
+GitHub Project（https://github.com/users/mrmrtmrn/projects/9）の issue も進捗ファイルに記録：
+
+1. **In Progress**: 現在進行中の issue → 毎回表示（重複許容）
+2. **Done**: 完了した issue → 新規のみ表示（重複を防ぐ）
+3. **重複防止**: `.done-issues.json` で記録済み Done issue を管理
+   - 一度 Done として記録された issue は次回以降スキップ
 
 **コミット履歴の確認方法:**
 ```bash
@@ -117,6 +128,12 @@ gh api repos/mrmrtmrn/my-blog/commits --jq '.[0].sha'
 
 # 特定のコミット以降の履歴を確認
 gh api repos/mrmrtmrn/my-blog/commits --jq '.[] | "\(.sha[0:7]) \(.commit.message | split("\n")[0])"'
+```
+
+**Issue 状態の確認方法:**
+```bash
+# GitHub Project から issue 一覧を取得
+gh project item-list 9 --owner mrmrtmrn --format json --limit 100
 ```
 
 ## 著作権ガイドライン（Books/ 専用）
@@ -167,8 +184,10 @@ Books/ ディレクトリで読書メモを作成する際は、著作権に配�
 MyBlog プロジェクトの進捗記録を自動生成します。
 - 前回の進捗ファイルから最新のコミットハッシュを取得
 - my-blog リポジトリの main ブランチで新しいコミットをチェック
+- GitHub Project から issue の状態（In Progress / Done）を取得
 - 変更があれば `MyApp/MyBlog/YYYY-MM-DD.md` を自動生成
-- コミット履歴を「今日やったこと」に自動入力
+- コミット履歴を「今日やったこと」に、issue進捗を「Issue 進捗」に自動入力
+- 新規 Done issue は `.done-issues.json` に記録して重複を防止
 
 **推奨ワークフロー:**
 1. 学習・読書を行い、変更をコミット
