@@ -76,13 +76,13 @@ git branch --show-current
      - [def5678] Add Docker configuration
      ```
 5. **Issue 進捗**:
-   - **完了した issue**: 新規 Done の issue を箇条書き
+   - **完了した issue**: 新規 Done の issue を箇条書き（リンク付き）
      ```
-     - #2 Dockerの設定理解
+     - [#2 Dockerの設定理解](https://github.com/mrmrtmrn/my-blog/issues/2)
      ```
-   - **進行中の issue**: In Progress の issue を箇条書き
+   - **進行中の issue**: In Progress の issue を箇条書き（リンク付き）
      ```
-     - #3 Railsで使っているgemの理解
+     - [#3 Railsで使っているgemの理解](https://github.com/mrmrtmrn/my-blog/issues/3)
      ```
 
 #### 手動で埋める内容（空欄のまま）：
