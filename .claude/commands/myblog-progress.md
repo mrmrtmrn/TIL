@@ -159,3 +159,4 @@ git branch --show-current
 - コミットハッシュは短縮形（7文字）を使用
 - ファイル名の日付はTILリポジトリのブランチ名に準拠
 - Done issue は `.done-issues.json` で重複を防ぐ
+- 毎回必ず GitHub API を実行して最新情報を取得すること（過去の取得結果を再利用しない）
