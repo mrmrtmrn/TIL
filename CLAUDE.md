@@ -94,7 +94,7 @@ gh pr create --base main --head YYYY-MM-DD --title "feat: YYYY-MM-DD の TIL 記
   - 昇格時（Tech/Books/Diary/ への移動時）のチェックリスト付き
 
 - **`MyApp/MyBlog/進捗テンプレート.md`** - MyBlog プロジェクトの進捗記録用テンプレート
-  - 今日やったこと、学んだこと・気づき、次にやることを記録
+  - 今日やったこと、学んだこと・気づきを記録
   - 対象コミット範囲（コミットハッシュ）を記録
 
 新しいエントリを作成する際は、これらのテンプレートをコピーして使用してください。
@@ -134,18 +134,6 @@ gh api repos/mrmrtmrn/my-blog/commits --jq '.[] | "\(.sha[0:7]) \(.commit.messag
 ```bash
 # GitHub Project から issue 一覧を取得
 gh project item-list 9 --owner mrmrtmrn --format json --limit 100
-```
-
-### Issue 作成ルール
-
-my-blog リポジトリに issue を作成する際は、必ず GitHub Project にも追加すること：
-
-```bash
-# issue 作成
-gh issue create --repo mrmrtmrn/my-blog --title "タイトル" --body "本文"
-
-# 作成した issue を Project に追加
-gh project item-add 9 --owner mrmrtmrn --url https://github.com/mrmrtmrn/my-blog/issues/番号
 ```
 
 ## 著作権ガイドライン（Books/ 専用）
