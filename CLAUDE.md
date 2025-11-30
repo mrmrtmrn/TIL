@@ -97,6 +97,10 @@ gh pr create --base main --head YYYY-MM-DD --title "feat: YYYY-MM-DD の TIL 記
   - 今日やったこと、学んだこと・気づきを記録
   - 対象コミット範囲（コミットハッシュ）を記録
 
+- **`Tech/Frontend/LearningFrontend/進捗テンプレート.md`** - Learning Frontend プロジェクトの進捗記録用テンプレート
+  - 今日の学習内容、学んだこと・気づきを記録
+  - 対象コミット範囲（コミットハッシュ）を記録
+
 新しいエントリを作成する際は、これらのテンプレートをコピーして使用してください。
 
 ## MyApp/MyBlog/ 更新ルール
@@ -136,6 +140,29 @@ gh api repos/mrmrtmrn/my-blog/commits --jq '.[] | "\(.sha[0:7]) \(.commit.messag
 gh project item-list 9 --owner mrmrtmrn --format json --limit 100
 ```
 
+## Tech/Frontend/LearningFrontend/ 更新ルール
+
+learning-frontend リポジトリの学習進捗を記録する際は、以下のルールに従ってください：
+
+### コミット追跡
+
+1. **対象**: learning-frontend リポジトリ（https://github.com/mrmrtmrn/learning-frontend）の **main ブランチの変更のみ** を記録
+2. **追跡方法**: コミットハッシュで「どこまで記録したか」を管理
+   - 各進捗ファイルに `対象コミット範囲: 前回のハッシュ → 最新のハッシュ` を記載
+   - `.last-commit.json` で前回取得したコミットハッシュを管理
+3. **記録範囲**: 前回の進捗ファイルの最新ハッシュ以降〜現在の最新コミットまで
+4. **ファイル名**: TILリポジトリのブランチ名（日付）を使用
+   - 例: ブランチが `2025-11-30` なら `Tech/Frontend/LearningFrontend/2025-11-30.md`
+
+**コミット履歴の確認方法:**
+```bash
+# learning-frontend の最新コミットを確認
+gh api repos/mrmrtmrn/learning-frontend/commits --jq '.[0].sha'
+
+# 特定のコミット以降の履歴を確認
+gh api repos/mrmrtmrn/learning-frontend/commits --jq '.[] | "\(.sha[0:7]) \(.commit.message | split("\n")[0])"'
+```
+
 ## 著作権ガイドライン（Books/ 専用）
 
 Books/ ディレクトリで読書メモを作成する際は、著作権に配慮してください：
@@ -160,6 +187,13 @@ Books/ ディレクトリで読書メモを作成する際は、著作権に配�
 ## カスタムコマンド
 
 このリポジトリには、日々の運用を効率化するためのカスタムコマンドが用意されています：
+
+### `/daily-all` ⭐ おすすめ
+本日の全ての学習記録を一括生成します。
+- `/myblog-progress` + `/learning-frontend-progress` + `/daily-summary` を順番に実行
+- 各リポジトリの進捗を自動で収集・記録
+- 変更がないリポジトリは自動的にスキップ
+- 1コマンドで全ての学習記録が完成
 
 ### `/daily-summary`
 本日のmainブランチとの差分から学習記録を自動作成します。
@@ -189,8 +223,23 @@ MyBlog プロジェクトの進捗記録を自動生成します。
 - コミット履歴を「今日やったこと」に、issue進捗を「Issue 進捗」に自動入力
 - 新規 Done issue は `.done-issues.json` に記録して重複を防止
 
+### `/learning-frontend-progress`
+Learning Frontend プロジェクトの進捗記録を自動生成します。
+- `.last-commit.json` から前回のコミットハッシュを取得
+- learning-frontend リポジトリの main ブランチで新しいコミットをチェック
+- コミット差分から `logs/` ディレクトリの学習記録を収集
+- サンプルコードディレクトリの変更を確認
+- 変更があれば `Tech/Frontend/LearningFrontend/YYYY-MM-DD.md` を自動生成
+- 概要・学んだこと・実装したコードを自動入力
+- `.last-commit.json` を更新して次回の差分取得に備える
+
 **推奨ワークフロー:**
 1. 学習・読書を行い、変更をコミット
-2. `/daily-summary` で学習記録を自動生成
-3. Books/ を編集した場合は `/check-book-notes` で著作権チェック
+2. Books/ を編集した場合は `/check-book-notes` で著作権チェック
+3. `/daily-all` で全ての学習記録を一括生成 ⭐
 4. `/create-pr` でプルリクエストを自動作成
+
+**個別に記録したい場合:**
+- `/myblog-progress` - MyBlog のみ
+- `/learning-frontend-progress` - Learning Frontend のみ
+- `/daily-summary` - TIL リポジトリのみ
