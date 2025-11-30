@@ -188,6 +188,13 @@ Books/ ディレクトリで読書メモを作成する際は、著作権に配�
 
 このリポジトリには、日々の運用を効率化するためのカスタムコマンドが用意されています：
 
+### `/daily-all` ⭐ おすすめ
+本日の全ての学習記録を一括生成します。
+- `/myblog-progress` + `/learning-frontend-progress` + `/daily-summary` を順番に実行
+- 各リポジトリの進捗を自動で収集・記録
+- 変更がないリポジトリは自動的にスキップ
+- 1コマンドで全ての学習記録が完成
+
 ### `/daily-summary`
 本日のmainブランチとの差分から学習記録を自動作成します。
 - 現在のブランチ名（日付形式）から日付を抽出
@@ -228,7 +235,11 @@ Learning Frontend プロジェクトの進捗記録を自動生成します。
 
 **推奨ワークフロー:**
 1. 学習・読書を行い、変更をコミット
-2. `/daily-summary` で学習記録を自動生成
-3. Books/ を編集した場合は `/check-book-notes` で著作権チェック
-4. `/learning-frontend-progress` で learning-frontend の進捗を記録（該当する場合）
-5. `/create-pr` でプルリクエストを自動作成
+2. Books/ を編集した場合は `/check-book-notes` で著作権チェック
+3. `/daily-all` で全ての学習記録を一括生成 ⭐
+4. `/create-pr` でプルリクエストを自動作成
+
+**個別に記録したい場合:**
+- `/myblog-progress` - MyBlog のみ
+- `/learning-frontend-progress` - Learning Frontend のみ
+- `/daily-summary` - TIL リポジトリのみ
