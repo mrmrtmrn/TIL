@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## リポジトリ概要
 
-このリポジトリは、日々の学習、読書、技術的な発見を記録するための個人用TIL（Today I Learned）リポジトリです。すべてのコンテンツは日本語で記述され、厳格なGitワークフローに従います。
+このリポジトリは、日々の学習、読書、技術的な発見を記録するための個人用TIL（Today I Learned）リポジトリです。すべてのコンテンツは日本語で記述されます。
 
 ## リポジトリ構成
 
@@ -40,36 +40,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Git ワークフロー要件
 
-**重要**: このリポジトリはCONTRIBUTING.mdで定義された厳格なGitワークフロールールに従います：
+`main` ブランチで直接運用します。ブランチ運用やPRは不要です。
 
-1. **`main` ブランチへの直接コミットは厳禁** - すべての変更はプルリクエスト経由で行う必要があります
-2. **ブランチ命名規則**: 日付形式 `YYYY-MM-DD` を使用（例: `2025-11-19`）
-3. **日々のワークフロー**:
-   - 本日の日付で新しいブランチを作成: `git switch -c YYYY-MM-DD`
-   - 変更を加えてコミット
-   - リモートへプッシュ: `git push -u origin YYYY-MM-DD`
-   - `main` へマージするプルリクエストを作成
-   - マージ後、ローカルブランチを削除: `git branch -d YYYY-MM-DD`
+```bash
+# 最新を取得
+git pull
+
+# 変更をコミット＆プッシュ
+git add .
+git commit -m "feat: 学習内容を追加"
+git push
+```
+
+学びがあったタイミングで細かくコミット・プッシュしてOKです。
 
 ## よく使うコマンド
 
-### 日次ブランチの作成
-```bash
-git switch main
-git pull
-git switch -c $(date +%Y-%m-%d)
-```
-
-### 変更のコミット
+### 変更のコミットとプッシュ
 ```bash
 git add .
 git commit -m "feat: YYYY-MM-DD の TIL 記録を追加"
-git push -u origin $(date +%Y-%m-%d)
-```
-
-### プルリクエストの作成（GitHub CLI使用）
-```bash
-gh pr create --base main --head YYYY-MM-DD --title "feat: YYYY-MM-DD の TIL 記録" --body ""
+git push
 ```
 
 ## コンテンツガイドライン
@@ -91,7 +82,7 @@ gh pr create --base main --head YYYY-MM-DD --title "feat: YYYY-MM-DD の TIL 記
 **含めないもの:**
 - 既存のリポジトリルールやワークフローの説明（新規作成時を除く）
 - カスタムコマンドの使い方や仕組みの説明（新規作成時を除く）
-- ブランチ命名規則などの運用ルールの説明
+- 運用ルールの説明
 - 記録作業そのものの手順や内容
 
 **例外:**
@@ -132,8 +123,8 @@ MyBlog の進捗を記録する際は、以下のルールに従ってくださ�
 2. **追跡方法**: コミットハッシュで「どこまで記録したか」を管理
    - 各進捗ファイルに `対象コミット範囲: 前回のハッシュ → 最新のハッシュ` を記載
 3. **記録範囲**: 前回の進捗ファイルの最新ハッシュ以降〜現在の最新コミットまで
-4. **ファイル名**: TILリポジトリのブランチ名（日付）を使用
-   - 例: ブランチが `2025-11-23` なら `MyApp/MyBlog/2025-11-23.md`
+4. **ファイル名**: 本日の日付を使用し、`YYYY/MM/` 配下に配置
+   - 例: `MyApp/MyBlog/2025/11/2025-11-23.md`
 
 ### Issue 追跡
 
@@ -170,8 +161,8 @@ learning-frontend リポジトリの学習進捗を記録する際は、以下�
    - 各進捗ファイルに `対象コミット範囲: 前回のハッシュ → 最新のハッシュ` を記載
    - `.last-commit.json` で前回取得したコミットハッシュを管理
 3. **記録範囲**: 前回の進捗ファイルの最新ハッシュ以降〜現在の最新コミットまで
-4. **ファイル名**: TILリポジトリのブランチ名（日付）を使用
-   - 例: ブランチが `2025-11-30` なら `Tech/Frontend/LearningFrontend/2025-11-30.md`
+4. **ファイル名**: 本日の日付を使用し、`YYYY/MM/` 配下に配置
+   - 例: `Tech/Frontend/LearningFrontend/2025/11/2025-11-30.md`
 
 **コミット履歴の確認方法:**
 ```bash
@@ -215,17 +206,10 @@ Books/ ディレクトリで読書メモを作成する際は、著作権に配�
 - 1コマンドで全ての学習記録が完成
 
 ### `/daily-summary`
-本日のmainブランチとの差分から学習記録を自動作成します。
-- 現在のブランチ名（日付形式）から日付を抽出
+本日のコミット済み変更から学習記録を自動作成します。
 - git diffとgit logを分析して変更内容を把握
 - `Diary/YYYY/MM/YYYY-MM-DD.md` ファイルを作成または更新
 - テンプレートに従った構造で学習記録を生成
-
-### `/create-pr`
-本日の差分からプルリクエストを自動作成します。
-- Diaryファイルからトピックを抽出
-- 簡潔なPRタイトルとボディを生成
-- `gh pr create` コマンドで自動的にPRを作成
 
 ### `/check-book-notes`
 読書メモの著作権リスクをチェックします。
@@ -238,7 +222,7 @@ MyBlog プロジェクトの進捗記録を自動生成します。
 - 前回の進捗ファイルから最新のコミットハッシュを取得
 - my-blog リポジトリの main ブランチで新しいコミットをチェック
 - GitHub Project から issue の状態（In Progress / Done）を取得
-- 変更があれば `MyApp/MyBlog/YYYY-MM-DD.md` を自動生成
+- 変更があれば `MyApp/MyBlog/YYYY/MM/YYYY-MM-DD.md` を自動生成
 - コミット履歴を「今日やったこと」に、issue進捗を「Issue 進捗」に自動入力
 - 新規 Done issue は `.done-issues.json` に記録して重複を防止
 
@@ -248,7 +232,7 @@ Learning Frontend プロジェクトの進捗記録を自動生成します。
 - learning-frontend リポジトリの main ブランチで新しいコミットをチェック
 - コミット差分から `logs/` ディレクトリの学習記録を収集
 - サンプルコードディレクトリの変更を確認
-- 変更があれば `Tech/Frontend/LearningFrontend/YYYY-MM-DD.md` を自動生成
+- 変更があれば `Tech/Frontend/LearningFrontend/YYYY/MM/YYYY-MM-DD.md` を自動生成
 - 概要・学んだこと・実装したコードを自動入力
 - `.last-commit.json` を更新して次回の差分取得に備える
 
@@ -256,7 +240,7 @@ Learning Frontend プロジェクトの進捗記録を自動生成します。
 1. 学習・読書を行い、変更をコミット
 2. Books/ を編集した場合は `/check-book-notes` で著作権チェック
 3. `/daily-all` で全ての学習記録を一括生成 ⭐
-4. `/create-pr` でプルリクエストを自動作成
+4. `git push` でリモートに反映
 
 **個別に記録したい場合:**
 - `/myblog-progress` - MyBlog のみ
