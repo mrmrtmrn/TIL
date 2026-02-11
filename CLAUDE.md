@@ -14,7 +14,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `Tech/` - 技術学習とIT知識（プログラミング、ツール、フレームワークなど）
 - `Books/` - 読んだ本の要約、重要なポイント、感想
-- `Diary/` - 日々の活動、振り返り、個人的なメモ
 
 各カテゴリには、トピック別にサブディレクトリが含まれる場合があります（例: `Tech/GitHub/`）。
 
@@ -22,7 +21,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `Draft/` - まだ整理されていないメモや、将来的にやりたいことを記録する場所
   - ちょっとした気づきや学びを素早くメモ
-  - 断片的な情報や、Tech/Books/Diary/ に入れるほどではない内容
+  - 断片的な情報や、Tech/Books/ に入れるほどではない内容
   - 後で整理して他のカテゴリに昇格させる下書きとして活用
   - 品質を気にせず、気軽に記録できる場所
 
@@ -31,12 +30,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `MyApp/` - 個人開発プロジェクトの進捗や学びを記録する場所
   - プロジェクトごとにサブディレクトリを作成（例: `MyApp/MyBlog/`）
   - 日々の作業内容、学んだこと、次にやることを記録
-  - 別リポジトリで開発中のプロジェクトの進捗をTILとして残す
-  - `gh` CLI を使って対象リポジトリのコミット履歴を参照可能
+  - **各外部リポジトリ側のスキルから直接書き込まれる**（TIL 側では収集しない）
 
 現在のプロジェクト：
 - **`MyApp/MyBlog/`** - React/Rails を使った学習用ブログサービス
   - リポジトリ: https://github.com/mrmrtmrn/my-blog
+  - 進捗記録は my-blog リポジトリ側の `/til-update` スキルが担当
 
 ## Git ワークフロー要件
 
@@ -71,7 +70,7 @@ git push
 
 ### 学習記録に含めるべき内容
 
-**重要**: 学習記録（特に `Diary/` カテゴリ）には、**実際に学習した技術的な内容のみ**を記録します。
+**重要**: 学習記録には、**実際に学習した技術的な内容のみ**を記録します。
 
 **含めるべきもの:**
 - 新しく学んだ技術、概念、知識
@@ -92,86 +91,23 @@ git push
 
 各カテゴリには、新しいエントリを作成する際に使用できるテンプレートファイルが用意されています：
 
-- **`Diary/日記テンプレート.md`** - 日々の学習記録を作成する際のテンプレート
-  - 学んだこと、コード例、参考リンク、まとめを含む構成
-
 - **`Books/読書メモテンプレート.md`** - 読書メモを作成する際のテンプレート
   - 書籍情報、学び・気づき、ネクストアクション、感想を含む構成
   - 著作権に配慮した注意書きをHTMLコメントで記載
 
 - **`Draft/下書きテンプレート.md`** - 下書きやメモを作成する際のテンプレート
   - 概要、メモ、TODO、参考リンクのセクション
-  - 昇格時（Tech/Books/Diary/ への移動時）のチェックリスト付き
-
-- **`MyApp/MyBlog/進捗テンプレート.md`** - MyBlog プロジェクトの進捗記録用テンプレート
-  - 今日やったこと、学んだこと・気づきを記録
-  - 対象コミット範囲（コミットハッシュ）を記録
-
-- **`Tech/Frontend/LearningFrontend/進捗テンプレート.md`** - Learning Frontend プロジェクトの進捗記録用テンプレート
-  - 今日の学習内容、学んだこと・気づきを記録
-  - 対象コミット範囲（コミットハッシュ）を記録
+  - 昇格時（Tech/Books/ への移動時）のチェックリスト付き
 
 新しいエントリを作成する際は、これらのテンプレートをコピーして使用してください。
 
-## MyApp/MyBlog/ 更新ルール
+## 外部リポジトリからの進捗記録
 
-MyBlog の進捗を記録する際は、以下のルールに従ってください：
+MyApp/ や Tech/ 配下の一部ディレクトリは、外部リポジトリ側のスキル（`/til-update`）から直接書き込まれます。
+TIL リポジトリ側では収集ロジックを持たず、あくまで知識の集約所として機能します。
 
-### コミット追跡
-
-1. **対象**: my-blog リポジトリ（https://github.com/mrmrtmrn/my-blog）の **main ブランチの変更のみ** を記録
-2. **追跡方法**: コミットハッシュで「どこまで記録したか」を管理
-   - 各進捗ファイルに `対象コミット範囲: 前回のハッシュ → 最新のハッシュ` を記載
-3. **記録範囲**: 前回の進捗ファイルの最新ハッシュ以降〜現在の最新コミットまで
-4. **ファイル名**: 本日の日付を使用し、`YYYY/MM/` 配下に配置
-   - 例: `MyApp/MyBlog/2025/11/2025-11-23.md`
-
-### Issue 追跡
-
-GitHub Project（https://github.com/users/mrmrtmrn/projects/9）の issue も進捗ファイルに記録：
-
-1. **In Progress**: 現在進行中の issue → 毎回表示（重複許容）
-2. **Done**: 完了した issue → 新規のみ表示（重複を防ぐ）
-3. **重複防止**: `.done-issues.json` で記録済み Done issue を管理
-   - 一度 Done として記録された issue は次回以降スキップ
-
-**コミット履歴の確認方法:**
-```bash
-# my-blog の最新コミットを確認
-gh api repos/mrmrtmrn/my-blog/commits --jq '.[0].sha'
-
-# 特定のコミット以降の履歴を確認
-gh api repos/mrmrtmrn/my-blog/commits --jq '.[] | "\(.sha[0:7]) \(.commit.message | split("\n")[0])"'
-```
-
-**Issue 状態の確認方法:**
-```bash
-# GitHub Project から issue 一覧を取得
-gh project item-list 9 --owner mrmrtmrn --format json --limit 100
-```
-
-## Tech/Frontend/LearningFrontend/ 更新ルール
-
-learning-frontend リポジトリの学習進捗を記録する際は、以下のルールに従ってください：
-
-### コミット追跡
-
-1. **対象**: learning-frontend リポジトリ（https://github.com/mrmrtmrn/learning-frontend）の **main ブランチの変更のみ** を記録
-2. **追跡方法**: コミットハッシュで「どこまで記録したか」を管理
-   - 各進捗ファイルに `対象コミット範囲: 前回のハッシュ → 最新のハッシュ` を記載
-   - `.last-commit.json` で前回取得したコミットハッシュを管理
-3. **記録範囲**: 前回の進捗ファイルの最新ハッシュ以降〜現在の最新コミットまで
-4. **ファイル名**: 本日の日付を使用し、`YYYY/MM/` 配下に配置
-   - 例: `Tech/Frontend/LearningFrontend/2025/11/2025-11-30.md`
-
-**コミット履歴の確認方法:**
-```bash
-# learning-frontend の最新コミットを確認
-gh api repos/mrmrtmrn/learning-frontend/commits --jq '.[0].sha'
-
-# 特定のコミット以降の履歴を確認
-gh api repos/mrmrtmrn/learning-frontend/commits --jq '.[] | "\(.sha[0:7]) \(.commit.message | split("\n")[0])"'
-```
+- 記録のフォーマットや粒度は各外部リポジトリ側に委ねられています
+- ファイル配置は `YYYY/MM/` の階層構造を共通ルールとしています
 
 ## 著作権ガイドライン（Books/ 専用）
 
@@ -198,51 +134,15 @@ Books/ ディレクトリで読書メモを作成する際は、著作権に配�
 
 このリポジトリには、日々の運用を効率化するためのカスタムコマンドが用意されています：
 
-### `/daily-all` ⭐ おすすめ
-本日の全ての学習記録を一括生成します。
-- `/myblog-progress` + `/learning-frontend-progress` + `/daily-summary` を順番に実行
-- 各リポジトリの進捗を自動で収集・記録
-- 変更がないリポジトリは自動的にスキップ
-- 1コマンドで全ての学習記録が完成
-
-### `/daily-summary`
-本日のコミット済み変更から学習記録を自動作成します。
-- git diffとgit logを分析して変更内容を把握
-- `Diary/YYYY/MM/YYYY-MM-DD.md` ファイルを作成または更新
-- テンプレートに従った構造で学習記録を生成
-
 ### `/check-book-notes`
 読書メモの著作権リスクをチェックします。
 - Books/ ディレクトリ内の変更ファイルを特定
 - 丸写しチェック、引用の適正化、画像の確認、独自性を審査
 - 問題があれば具体的な修正ポイントを指摘
 
-### `/myblog-progress`
-MyBlog プロジェクトの進捗記録を自動生成します。
-- 前回の進捗ファイルから最新のコミットハッシュを取得
-- my-blog リポジトリの main ブランチで新しいコミットをチェック
-- GitHub Project から issue の状態（In Progress / Done）を取得
-- 変更があれば `MyApp/MyBlog/YYYY/MM/YYYY-MM-DD.md` を自動生成
-- コミット履歴を「今日やったこと」に、issue進捗を「Issue 進捗」に自動入力
-- 新規 Done issue は `.done-issues.json` に記録して重複を防止
-
-### `/learning-frontend-progress`
-Learning Frontend プロジェクトの進捗記録を自動生成します。
-- `.last-commit.json` から前回のコミットハッシュを取得
-- learning-frontend リポジトリの main ブランチで新しいコミットをチェック
-- コミット差分から `logs/` ディレクトリの学習記録を収集
-- サンプルコードディレクトリの変更を確認
-- 変更があれば `Tech/Frontend/LearningFrontend/YYYY/MM/YYYY-MM-DD.md` を自動生成
-- 概要・学んだこと・実装したコードを自動入力
-- `.last-commit.json` を更新して次回の差分取得に備える
-
 **推奨ワークフロー:**
 1. 学習・読書を行い、変更をコミット
 2. Books/ を編集した場合は `/check-book-notes` で著作権チェック
-3. `/daily-all` で全ての学習記録を一括生成 ⭐
-4. `git push` でリモートに反映
+3. `git push` でリモートに反映
 
-**個別に記録したい場合:**
-- `/myblog-progress` - MyBlog のみ
-- `/learning-frontend-progress` - Learning Frontend のみ
-- `/daily-summary` - TIL リポジトリのみ
+※ 外部リポジトリの進捗記録は、各リポジトリ側の `/til-update` スキルから実行してください。
