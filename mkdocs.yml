@@ -1,0 +1,24 @@
+site_name: TIL - Today I Learned
+site_description: 日々の学習、読書、技術的な発見を記録するナレッジベース
+site_url: https://mrmrtmrn.github.io/TIL
+repo_url: https://github.com/mrmrtmrn/TIL
+repo_name: mrmrtmrn/TIL
+
+theme:
+  name: material
+  language: ja
+  features:
+    - navigation.instant
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+
+plugins:
+  - search:
+      separator: '[\s\u200b\-]'
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
