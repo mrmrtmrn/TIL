@@ -2,7 +2,7 @@
 
 **著者**: ミック
 **出版社**: 翔泳社
-**リンク**: https://www.shoeisha.co.jp/book/detail/9784798186627
+**リンク**: [翔泳社の商品ページ](https://www.shoeisha.co.jp/book/detail/9784798186627)
 
 ---
 
