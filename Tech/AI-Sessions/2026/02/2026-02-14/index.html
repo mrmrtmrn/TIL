@@ -1,0 +1,3464 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="日々の学習、読書、技術的な発見を記録するナレッジベース">
+      
+      
+      
+        <link rel="canonical" href="https://mrmrtmrn.github.io/TIL/Tech/AI-Sessions/2026/02/2026-02-14/">
+      
+      
+        <link rel="prev" href="../2026-02-12/">
+      
+      
+        <link rel="next" href="../2026-02-16/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>AI Session Notes - 2026-02-14 - TIL - Today I Learned</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai-session-notes-2026-02-14" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../../../../.." title="TIL - Today I Learned" class="md-header__button md-logo" aria-label="TIL - Today I Learned" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TIL - Today I Learned
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI Session Notes - 2026-02-14
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mrmrtmrn/TIL" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mrmrtmrn/TIL
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="TIL - Today I Learned" class="md-nav__button md-logo" aria-label="TIL - Today I Learned" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TIL - Today I Learned
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mrmrtmrn/TIL" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mrmrtmrn/TIL
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TIL (Today I Learned)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Books
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Books/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    [書籍タイトル]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Books/%E9%81%94%E4%BA%BA%E3%81%AB%E5%AD%A6%E3%81%B6DB%E8%A8%AD%E8%A8%88%E5%BE%B9%E5%BA%95%E6%8C%87%E5%8D%97%E6%9B%B8_%E7%AC%AC2%E7%89%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    達人に学ぶDB設計徹底指南書 第2版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Books/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC_%E7%AC%AC2%E7%89%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    達人プログラマー 第2版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java言語で学ぶデザインパターン入門第3版
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java言語で学ぶデザインパターン入門第3版
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Books/Java%E8%A8%80%E8%AA%9E%E3%81%A7%E5%AD%A6%E3%81%B6%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E5%85%A5%E9%96%80%E7%AC%AC3%E7%89%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java言語で学ぶデザインパターン入門 第3版
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tech
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Sessions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI Sessions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2026
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_1" id="__nav_3_1_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-14
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#google-antigravity-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Antigravity IDE の概要
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Antigravity IDE の概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antigravity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antigravity独自の機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIコーディングツールのポジション比較
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AIコーディングツールのポジション比較">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-codeidevim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code系IDEでのVimモード管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VS Code系IDEでのVimモード管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code拡張の信頼性の判断基準
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VS Code拡張の信頼性の判断基準">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自分専用ブログにDBは必要か
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自分専用ブログにDBは必要か">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloudflare Pagesのビルドパイプライン
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloudflare Pagesのビルドパイプライン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudflare-pages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloudflare Pagesのファイルサイズ制限と動画の扱い
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloudflare Pagesのファイルサイズ制限と動画の扱い">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静的サイトのURL設計
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="静的サイトのURL設計">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静的サイトのタグと検索機能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="静的サイトのタグと検索機能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静的サイト vs ブログサービスの使い分け
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="静的サイト vs ブログサービスの使い分け">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#movable-typemt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Movable Type（MT）形式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Movable Type（MT）形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gmail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gmailエイリアスの仕組みと制限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gmailエイリアスの仕組みと制限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gmail_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gmailの受信トレイ整理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gmailの受信トレイ整理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zenn-cligithub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zenn CLIとGitHubリポジトリ連携
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zenn CLIとGitHubリポジトリ連携">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zenn-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zenn CLIの機能範囲
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-vs-gcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS vs GCPの個人利用比較
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS vs GCPの個人利用比較">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firebaseとモバイルアプリの相性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Firebaseとモバイルアプリの相性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swift-vs-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swift vs Flutterの違い
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Swift vs Flutterの違い">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firestore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        イラスト投稿サイトにおけるFirestoreの適性と限界
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="イラスト投稿サイトにおけるFirestoreの適性と限界">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i18n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静的サイトの多言語対応（i18n）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="静的サイトの多言語対応（i18n）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firebase-hosting-vs-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firebase Hosting vs Cloudflare Pagesの比較
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Firebase Hosting vs Cloudflare Pagesの比較">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#app-store-google-play-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        App Store / Google Play Storeの公開コスト
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="App Store / Google Play Storeの公開コスト">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学んだこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メタ情報
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-22
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-23
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-24
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-25
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-26
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2026-02-28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-02-28
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_2" id="__nav_3_1_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-20
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-21
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-23
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-24
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-25
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-26
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-27
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-28
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-29
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-30/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-30
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03/2026-03-31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-03-31
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_3" id="__nav_3_1_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-18
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04/2026-04-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-04-19
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_4" id="__nav_3_1_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05/2026-05-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-05-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05/2026-05-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-05-06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05/2026-05-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-05-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1_5" id="__nav_3_1_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06/2026-06-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Session Notes - 2026-06-21
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ai-session-notes-2026-02-14">AI Session Notes - 2026-02-14</h1>
+<h2 id="google-antigravity-ide">Google Antigravity IDE の概要</h2>
+<h3 id="_1">学んだこと</h3>
+<ul>
+<li>Google Antigravity はVS Codeをフォークした<strong>エージェント特化のIDE</strong>（「Agent-First IDE」）</li>
+<li>テキスト編集よりもエージェント管理が中心の設計思想</li>
+<li>バックエンドはGemini 3だが、Claude Sonnet 4.5やGPT-OSSもモデルとして選択可能</li>
+<li>現在パブリックプレビュー中で、個人のGmailアカウントがあれば<strong>無料</strong>で利用できる</li>
+<li>Homebrewからインストール可能（<code>brew install --cask antigravity</code>）。CLIコマンドは <code>agy</code></li>
+<li>ダウンロード元は <code>edgedl.me.gvt1.com</code>（Googleのエッジ配信サーバー）で、Chrome等と同じGoogle公式インフラから配布されている</li>
+</ul>
+<h3 id="antigravity">Antigravity独自の機能</h3>
+<ul>
+<li><strong>Agent Manager</strong> — 複数のAIエージェントを同時に走らせて並列作業を管理できるGUI</li>
+<li><strong>Artifacts</strong> — エージェントがタスクリスト・実装計画・スクリーンショット等の成果物を生成し、ドキュメントのようにコメントを残せる</li>
+<li><strong>Plan-first</strong> — コードを書く前に詳細な実行計画を可視化する</li>
+</ul>
+<h2 id="ai">AIコーディングツールのポジション比較</h2>
+<h3 id="_2">学んだこと</h3>
+<ul>
+<li><strong>Gemini CLI ≒ Claude Code</strong> — どちらもターミナルで1エージェントと対話するCLIツール。体験はほぼ同じ</li>
+<li><strong>Antigravity ≠ Gemini CLI</strong> — AntigravityはGemini CLIの上位互換ではなく、複数エージェントのGUI管理という<strong>別レイヤーのツール</strong></li>
+<li>Claude Codeでもバックグラウンドエージェント・Task tool・<code>claude -p</code>で複数タスクの並列実行は可能。機能的な差はAntigravityの<strong>可視化（GUI）</strong>にある</li>
+<li>Neovim + Claude Code の組み合わせで不満がなければ、Antigravityに乗り換える動機は薄い。Antigravityは「Geminiエコシステムに寄せたい人」「GUIでエージェント管理したい人」向け</li>
+</ul>
+<h2 id="vs-codeidevim">VS Code系IDEでのVimモード管理</h2>
+<h3 id="_3">学んだこと</h3>
+<ul>
+<li>VS Codeフォーク系IDE（Antigravity等）には初回セットアップでVimモードを選ぶオプションがあるが、これはキーバインドの<strong>エミュレーション</strong>で、既存のnvim設定（<code>init.lua</code>等）は使えない</li>
+<li>既存のnvim設定を活かしたい場合は <strong>vscode-neovim</strong> 拡張を使う。実際にNeovimをバックエンドとして動かすため、設定がそのまま反映される</li>
+<li>Vimモードを無効化するには <code>Cmd + Shift + P</code> → 「Toggle Vim Mode」、または設定JSONで <code>vim.enable: false</code>、または拡張機能パネルからDisable</li>
+<li>Vimモードがターミナル表示のショートカット（<code>Ctrl + `</code>）を奪うことがある。代替として <strong><code>Cmd + J</code></strong> でターミナルパネルをトグルできる</li>
+</ul>
+<h2 id="vs-code">VS Code拡張の信頼性の判断基準</h2>
+<h3 id="_4">学んだこと</h3>
+<ul>
+<li>VS Code Marketplaceはマルウェアスキャンを通過した拡張のみ公開される</li>
+<li><strong>Verified Publisher</strong>（青チェックマーク）は、ドメイン認証済み・6ヶ月以上良好な実績を持つ発行者に付与される。個人開発のOSS拡張にはついていないことも多い</li>
+<li>信頼性の判断材料：<strong>ダウンロード数</strong>（多いほどコミュニティの目が入っている）、<strong>レーティング</strong>、<strong>GitHubでソース公開されているか</strong>、<strong>最終更新日</strong></li>
+<li>Verified Publisherがなくてもダウンロード数が多くソースが公開されている拡張は、実用上問題ないケースがほとんど</li>
+</ul>
+<h2 id="db">自分専用ブログにDBは必要か</h2>
+<h3 id="_5">学んだこと</h3>
+<ul>
+<li>一般的なブログサービスにRDBが必要な理由は、複数ユーザーの管理・記事とユーザーの紐付け・コメントやいいね等のユーザー間リレーションがあるため</li>
+<li>自分しか使わないブログであれば、これらの要件がすべて不要なので<strong>DBすら不要</strong></li>
+<li>最適解は<strong>Markdownファイル + 静的サイトジェネレーター</strong>（Hugo, Astro, Jekyll等）</li>
+<li>記事の実体はMarkdownファイルで、Gitで管理し、エディタで直接書ける</li>
+</ul>
+<h2 id="cloudflare-pages">Cloudflare Pagesのビルドパイプライン</h2>
+<h3 id="_6">学んだこと</h3>
+<ul>
+<li>Cloudflare Pagesはただの静的ファイル置き場ではなく、<strong>ビルドパイプライン</strong>を持っている</li>
+<li>GitHubリポジトリへのpushを検知 → 設定されたビルドコマンド（例: <code>hugo</code>）を実行 → 生成されたHTMLを自動デプロイ、という流れが自動で行われる</li>
+<li>設定するのは「ビルドコマンド」と「出力ディレクトリ」の2つだけ</li>
+<li>自分のPCではMarkdownを書いてpushするだけで、ビルドはCloudflare側で行われる</li>
+</ul>
+<h2 id="cloudflare-pages_1">Cloudflare Pagesのファイルサイズ制限と動画の扱い</h2>
+<h3 id="_7">学んだこと</h3>
+<ul>
+<li>Cloudflare Pagesの1ファイルの上限は<strong>25MB</strong>。ファイル数は無料で20,000、有料で100,000</li>
+<li>動画ファイルは25MBをすぐ超えるため、Cloudflare Pagesでの配信には向かない</li>
+<li>Gitリポジトリにバイナリ（動画）を入れるとリポジトリが肥大化し、pushも遅くなる</li>
+<li>動画を扱いたい場合は外部サービスに逃がす：<strong>YouTube（限定公開）</strong>が最も手軽でコストゼロ。Cloudflare R2（10GB/月まで無料）やCloudflare Stream（有料）も選択肢</li>
+<li>ユーザーにメディアアップロードを許可する仕組みは、容量・帯域コストが予測不能になるため趣味レベルのアプリでは避けたほうが良い</li>
+</ul>
+<h2 id="url">静的サイトのURL設計</h2>
+<h3 id="_8">学んだこと</h3>
+<ul>
+<li>静的サイトジェネレーターではファイルパスがそのままURLになるため、<strong>URLは一度公開したら変えない</strong>のが鉄則</li>
+<li>URLが変わると外部リンクの404化、検索インデックスの無効化、SNSでの共有リンク切れが発生する</li>
+<li>front matterで <code>slug</code> を明示指定すれば、ファイル名を変えてもURLを固定できる</li>
+<li>スラッグは英語のケバブケース（<code>my-first-post</code>）が無難。日本語URLはエンコードされて長くなる</li>
+<li><strong>固定すべきはURLだけ</strong>。タグ・タイトル・カテゴリ等のメタデータは後からいくらでも変更可能</li>
+</ul>
+<h2 id="_9">静的サイトのタグと検索機能</h2>
+<h3 id="_10">学んだこと</h3>
+<ul>
+<li>タグはfront matterで管理するためURLに影響せず、後から自由に追加・変更できる</li>
+<li>静的サイトジェネレーターはビルド時にタグ別一覧ページ（<code>/tags/firebase/</code> 等）を自動生成する</li>
+<li><strong>フリーワード検索</strong>は静的サイトの標準機能にはない。事前生成されたHTMLを配信するだけなので、動的な検索処理ができない</li>
+<li>検索を追加したい場合は<strong>Pagefind</strong>がおすすめ。ビルド時に検索インデックスを生成し、サーバー不要で動作する</li>
+<li>個人ブログ規模ならタグ一覧で十分。検索が必要になるのは記事数百本を超えたあたりから</li>
+</ul>
+<h2 id="vs">静的サイト vs ブログサービスの使い分け</h2>
+<h3 id="_11">学んだこと</h3>
+<ul>
+<li>静的サイトでは<strong>できないこと</strong>がある：コメント欄、お問い合わせフォーム、ブラウザだけでの記事執筆、予約投稿（標準では）</li>
+<li>画像が多い趣味ブログ（ゲーム・アニメ・映画の感想等）はブログサービスの方が向いている</li>
+<li>技術ブログで<strong>フィードバック（マサカリ）</strong>が欲しい場合、個人ブログよりZennやQiitaの方がコメント文化がある</li>
+<li>Zennは<strong>GitHubリポジトリから記事管理</strong>でき、Markdownで書き溜める運用とフィードバック受信が両立できる</li>
+<li>用途に応じた使い分けが現実的：技術系→Zenn/Qiita、趣味系→note/はてなブログ、自分用→TILリポジトリ</li>
+</ul>
+<h2 id="movable-typemt">Movable Type（MT）形式</h2>
+<h3 id="_12">学んだこと</h3>
+<ul>
+<li>Movable Type形式は、ブログサービス間のデータ移行で広く使われている<strong>テキストベースのデータ交換フォーマット</strong></li>
+<li>元はMovable Typeというブログソフトのエクスポート形式だが、シンプルさから多くのサービス（はてなブログ、WordPress、Livedoor等）が対応している</li>
+<li>Hugo → MT形式の変換は標準機能にはないが、front matterを読み替えるだけなので簡単なスクリプトで対応可能</li>
+<li>逆（MT形式 → Hugo）はHTML→Markdown変換が必要でやや面倒</li>
+<li>Markdownで記事を書き溜めておけば、どのフォーマットにも変換しやすく移行の柔軟性が高い</li>
+</ul>
+<h2 id="gmail">Gmailエイリアスの仕組みと制限</h2>
+<h3 id="_13">学んだこと</h3>
+<ul>
+<li>Gmailはメールアドレスの <code>+文字列</code> と <code>.</code>（ドット）を<strong>無視する仕様</strong>で、すべて同じ受信トレイに届く</li>
+<li><code>user+dev@gmail.com</code> → <code>user@gmail.com</code> と同じ</li>
+<li><code>u.ser@gmail.com</code> → <code>user@gmail.com</code> と同じ</li>
+<li><code>+</code> エイリアスはGmailのフィルタ条件に使いやすく、メール整理に便利</li>
+<li>ただし <code>+</code> を含むメールアドレスを<strong>不正な形式として弾くサービスが多い</strong>（X、Zenn等）</li>
+<li><code>.</code> エイリアスの方がサービス側で弾かれにくいが、Gmailがドットを無視するためフィルタ条件に使いづらい</li>
+<li>OAuth（Googleログイン）を使うサービスではエイリアスの概念がそもそも関係ない</li>
+</ul>
+<h2 id="gmail_1">Gmailの受信トレイ整理</h2>
+<h3 id="_14">学んだこと</h3>
+<ul>
+<li>Gmailには<strong>カテゴリタブ</strong>機能があり、メイン・ソーシャル・プロモーション・新着・フォーラムの5つに自動振り分けされる</li>
+<li>タブは5つ固定で、自分でカスタムタブを追加することはできない</li>
+<li>より細かい振り分けが必要な場合は<strong>ラベル + フィルタ</strong>を使う</li>
+<li>フィルタの管理は 設定 →「フィルタとブロック中のアドレス」タブから確認・削除できる</li>
+<li>ラベルの管理は 設定 →「ラベル」タブから一括管理できるが、一括削除機能はない</li>
+<li>運用のコツ：まずカテゴリタブだけで回してみて、足りなければフィルタを最小限だけ追加する</li>
+</ul>
+<h2 id="zenn-cligithub">Zenn CLIとGitHubリポジトリ連携</h2>
+<h3 id="_15">学んだこと</h3>
+<ul>
+<li>Zenn CLIは標準のnpmパッケージなので<strong>pnpmでも利用可能</strong>。<code>npm install</code> → <code>pnpm add</code>、<code>npx</code> → <code>pnpm exec</code> に読み替えるだけ</li>
+<li><code>pnpm init</code> にはnpmの <code>--yes</code> オプションがない。引数なしで実行すればデフォルトの <code>package.json</code> が対話なしで生成される</li>
+<li><code>zenn init</code> が生成するディレクトリ構成は <code>articles/</code>、<code>books/</code> の2つだけ。手動で <code>mkdir</code> しても同じ</li>
+<li>画像を使う場合は <code>images/</code> ディレクトリをリポジトリ直下に追加する</li>
+<li>記事ファイル名がそのままURLのスラッグになるため、最初に決めたら変えないのが望ましい</li>
+</ul>
+<h3 id="zenn-cli">Zenn CLIの機能範囲</h3>
+<ul>
+<li>CLIで作成できるのは<strong>記事（article）</strong>と<strong>本（book）</strong>のみ</li>
+<li><strong>スクラップ（scrap）はCLI/GitHub連携では作成・管理できない</strong>。ブラウザのZenn上からのみ作成可能</li>
+<li>ZennのログインはGoogleアカウントまたはメールアドレスのみ。GitHubログインは非対応（GitHub連携は記事管理の機能であってログイン手段ではない）</li>
+</ul>
+<h2 id="aws-vs-gcp">AWS vs GCPの個人利用比較</h2>
+<h3 id="_16">学んだこと</h3>
+<ul>
+<li>個人の趣味開発では<strong>GCP（Firebase）</strong>の方がAWSより始めやすい</li>
+<li>Firebaseの無料枠（Sparkプラン）は<strong>恒久的な無料枠</strong>で、期限切れの心配がない。AWSの無料利用枠は多くが12ヶ月限定</li>
+<li>Firebaseはフロントエンドから直接DBやAuthにアクセスできるため、サーバーレス関数を書かずに済むケースが多い。AWSは各サービスを自分で組み合わせる必要がある</li>
+<li>GCPの課金体系はFirebaseコンソールから一元管理でき、予算アラートも簡単に設定可能</li>
+<li>AWSは企業向けのサービスが充実しており、仕事で使うなら学ぶ価値が高い。個人開発の手軽さではGCP/Firebaseに軍配</li>
+</ul>
+<h2 id="firebase">Firebaseとモバイルアプリの相性</h2>
+<h3 id="_17">学んだこと</h3>
+<ul>
+<li>Firebaseは元々モバイルアプリ向けのBaaSとして設計されており、<strong>モバイルとの相性は非常に良い</strong></li>
+<li>モバイル向けの主要機能：<strong>Authentication</strong>（ソーシャルログイン）、<strong>Cloud Firestore</strong>（リアルタイムDB）、<strong>Cloud Storage</strong>（画像・動画の保存）、<strong>Cloud Messaging（FCM）</strong>（プッシュ通知）、<strong>Crashlytics</strong>（クラッシュレポート）、<strong>Analytics</strong>（利用分析）</li>
+<li>iOS/Android両方に公式SDKが提供されており、FlutterやReact Nativeなどのクロスプラットフォームフレームワークにも対応</li>
+<li>プッシュ通知（FCM）はFirebase特有の強みで、AWSで同等の機能を実現するにはSNS + Pinpointなど複数サービスの組み合わせが必要</li>
+</ul>
+<h2 id="swift-vs-flutter">Swift vs Flutterの違い</h2>
+<h3 id="_18">学んだこと</h3>
+<ul>
+<li><strong>Swift</strong> — Apple公式の言語で、<strong>iOS/macOS専用</strong>のネイティブアプリを開発する。UIフレームワークはSwiftUI（またはUIKit）</li>
+<li><strong>Flutter</strong> — Google製の<strong>クロスプラットフォーム</strong>フレームワークで、1つのコードベースからiOS・Android・Web・デスクトップアプリを生成できる。言語はDart</li>
+<li>Swiftはネイティブなので<strong>パフォーマンスが最高</strong>で、iOSの最新API（ARKit、HealthKit等）にいち早く対応できる</li>
+<li>Flutterは<strong>1つのコードで複数プラットフォームに対応</strong>できるため、開発効率が高い。ただしOS固有の機能を使う場合はプラットフォーム別のコードが必要になることがある</li>
+<li>個人開発で「iOSだけでいい」ならSwift、「AndroidやWebにも出したい」ならFlutterが合理的</li>
+<li>FlutterはFirebaseとの統合が公式にサポートされており（FlutterFire）、セットアップも簡単</li>
+</ul>
+<h2 id="firestore">イラスト投稿サイトにおけるFirestoreの適性と限界</h2>
+<h3 id="_19">学んだこと</h3>
+<ul>
+<li>Firestoreは<strong>ドキュメントDB</strong>であり、画像ファイルそのものは保存できない。画像の実体は<strong>Cloud Storage for Firebase</strong>に保存し、FirestoreにはURLやメタデータ（タイトル、タグ、投稿者等）を持たせる</li>
+<li>いいね・コメント等の機能もFirestoreで実現可能だが、<strong>フリーワード検索</strong>（タグ・タイトル横断検索）はFirestoreの苦手分野。完全一致やプレフィックス検索しかサポートしておらず、全文検索にはAlgolia等の外部サービスが必要</li>
+<li>「フォローしているユーザーの新着」「いいね数ランキング」のような<strong>複雑なリレーショナルクエリ</strong>は、RDBならJOIN一発だがNoSQLでは設計が難しい</li>
+<li>ギャラリー表示で1ページ20枚を表示すると20回の読み取りが発生し、閲覧者が増えると読み取り課金が急増するリスクがある</li>
+<li>規模による使い分け：自分だけ or 友人数人→Firebase、不特定多数に公開・検索あり→RDB + オブジェクトストレージの方が自然</li>
+</ul>
+<h2 id="i18n">静的サイトの多言語対応（i18n）</h2>
+<h3 id="_20">学んだこと</h3>
+<ul>
+<li>静的サイトの多言語対応は<strong>ホスティングサービス側ではなく、静的サイトジェネレーター側の機能</strong>で実現する</li>
+<li>Hugo等には組み込みのi18nサポートがあり、<code>content/en/</code>、<code>content/ja/</code> のように言語別にコンテンツファイルを用意するとビルド時に <code>/en/about/</code>、<code>/ja/about/</code> のようなURLで言語別HTMLが生成される</li>
+<li>ビルド済みHTMLを配信するだけなので、ホスティング先はどこでも対応可能</li>
+<li>ブラウザの<code>Accept-Language</code>ヘッダーによる<strong>自動リダイレクト</strong>はホスティングごとに差がある：Firebase Hostingは<code>firebase.json</code>の<code>i18n</code>設定で組み込みサポートあり、Cloudflare Pagesは自前実装（Workers等）が必要</li>
+<li>言語スイッチャーでユーザーが手動切り替えする形なら、ホスティングの違いは関係ない</li>
+</ul>
+<h2 id="firebase-hosting-vs-cloudflare-pages">Firebase Hosting vs Cloudflare Pagesの比較</h2>
+<h3 id="_21">学んだこと</h3>
+<ul>
+<li><strong>デプロイ方法</strong>：Cloudflare PagesはGit push → 自動ビルド＆デプロイ。Firebase Hostingは<code>firebase deploy</code>コマンドで手動（GitHub Actions等で自動化は可能だが自分で構築する必要がある）</li>
+<li><strong>ビルドパイプライン</strong>：Cloudflare Pagesは組み込み、Firebase Hostingにはない（ローカルや外部CIでビルドしてからアップロード）</li>
+<li><strong>無料枠の差が大きい</strong>：Cloudflare Pagesは帯域<strong>無制限</strong>・サイト数無制限。Firebase Hostingは帯域360MB/日（≒10GB/月）・ストレージ10GB</li>
+<li><strong>CDN</strong>：Cloudflareは300都市以上のエッジネットワーク。Firebase HostingもGoogleのCDNで十分速いが拠点数は少ない</li>
+<li><strong>サーバーサイド処理</strong>：Cloudflare Workersはエッジ実行でコールドスタートほぼなし。Cloud Functionsはリージョン実行でコールドスタートあり</li>
+<li><strong>使い分け</strong>：純粋な静的サイトならCloudflare Pagesの無料枠が圧倒的に有利。Firebaseの他サービス（Firestore、Auth等）と組み合わせる場合に「ついでにHostingもFirebase」が自然</li>
+</ul>
+<h2 id="app-store-google-play-store">App Store / Google Play Storeの公開コスト</h2>
+<h3 id="_22">学んだこと</h3>
+<ul>
+<li><strong>Apple App Store</strong> — Apple Developer Programへの登録が必要で、年額<strong>$99（約15,000円）</strong>。毎年更新が必要</li>
+<li><strong>Google Play Store</strong> — Google Play Developer Consoleへの登録が必要で、<strong>$25の一回払い</strong>のみ。以降の年間費用はない</li>
+<li>Appleの方が審査が厳しく、リジェクトされることもある。Googleは比較的緩い</li>
+<li>アプリを公開せずTestFlightで配布する場合もApple Developer Programへの登録は必要</li>
+<li>ストアに公開せずWebアプリとして配布する（PWA等）なら、これらの費用は不要</li>
+</ul>
+<h2 id="_23">メタ情報</h2>
+<ul>
+<li><strong>ツール</strong>: Claude Code</li>
+<li><strong>関連技術</strong>: Google Antigravity, Gemini CLI, Gemini 3, Agent Manager, VS Code, vscode-neovim, Neovim, Homebrew, VS Code Marketplace, 拡張機能セキュリティ, Cloudflare Pages, Cloudflare Workers, ビルドパイプライン, 静的サイトジェネレーター, Hugo, Astro, Jekyll, Cloudflare R2, YouTube, Firebase Storage, Firebase Hosting, Cloud Functions, Pagefind, Zenn, Zenn CLI, pnpm, Movable Type, Gmailエイリアス, Gmailフィルタ, AWS, GCP, Firebase, Firestore, Cloud Storage, FCM, Crashlytics, Swift, SwiftUI, Flutter, Dart, FlutterFire, App Store, Google Play Store, Apple Developer Program, PWA, i18n, Algolia, NoSQL</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.instant", "navigation.sections", "search.suggest", "search.highlight", "toc.integrate"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
